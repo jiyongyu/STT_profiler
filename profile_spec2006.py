@@ -2,12 +2,12 @@
 
 import os
 
-spec_outdir = "/home/jiyongy2/STT_ISCA19/STT_gem5/output/outputs/real-sim/SPEC2006/"
+specout_dir = "/home/jiyongy2/STT_ISCA19/STT_gem5/output/outputs/real-sim/SPEC2006/"
 profile_dir = "/shared/Jiyong/SPEC2006/benchspec/CPU2006/profile/"
 
 ignore = ['lbm', 'sphinx3']
 
-for dr in os.listdir(spec_outdir):
+for dr in os.listdir(specout_dir):
     if "TSO-SafeFence-Spectre-DDIFT-Lazy-TransType0" in dr:
         bcmk_name = dr.split('-')[0]
         print bcmk_name
@@ -16,7 +16,7 @@ for dr in os.listdir(spec_outdir):
             continue
 
         delay_count = {}
-        with open(spec_outdir + dr + '/condor.output', 'r') as gem5_outfile:
+        with open(specout_dir + dr + '/condor.output', 'r') as gem5_outfile:
             for line in gem5_outfile:
                 if "cycle:" in line:
                     delay_count = {}
@@ -40,7 +40,7 @@ for dr in os.listdir(spec_outdir):
 
         # create assembly file
         asmfile_name = bcmk_name + '.S'
-        os.system('./generate_asm.sh ' + bcmk_name)
+        os.system('./generate_asm.sh ' + bcmk_name + ' ' + profile_dir)
 
         # create annotate assembly file
         annotate_asmfile_name = bcmk_name + '.S.annotate'

@@ -1,0 +1,5 @@
+-- TO profile SPEC2006
+
+Simply run profile_spec2006.py, which uses generate_asm.sh for generating disassembly file
+
+Please change the 'specout_dir' and 'profile_dir' to proper paths to SPEC output and Profiler..
