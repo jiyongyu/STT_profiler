@@ -1,6 +1,6 @@
 #/bin/bash
 
-$SPEC2006_DIR = /shared/Jiyong/SPEC2006
+SPEC2006_DIR=/shared/Jiyong/SPEC2006
 source $SPEC2006_DIR/shrc
 go $1 run
 cd run_base_ref_x86_64.0000
