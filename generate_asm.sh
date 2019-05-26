@@ -5,3 +5,4 @@ source $SPEC2006_DIR/shrc
 go $1 run
 cd run_base_ref_x86_64.0000
 objdump -ld -C $1_base.x86_64 > $2/$1.S
+cp $1_base.x86_64 $2/$1
